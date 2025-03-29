@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .navbar{
+    position: fixed;
+    width: 100%;
+    background-color: rgb(76, 72, 136) !important;
+  }
+
+  .navbar a{
+    color: white;
+  }
+  .dropdown-menu{
+    background-color: rgb(76, 72, 136);
+  }
+  .btnHome{
+    background-color: rgb(76, 72, 136);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+  }
+  
+
+  /* dashboard links */
+ 
+  
