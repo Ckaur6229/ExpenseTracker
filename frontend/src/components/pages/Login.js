@@ -37,7 +37,7 @@ const [formError, setFormError] = useState({});
     if (!values.password.trim()) {
       errors.password = "Password is required";
     } else if (!passwordRegex.test(values.password)) {
-      errors.password = "Password must be at least 6 characters, include uppercase, lowercase, a number, and a special character";
+      errors.password = "Password is incorrect";
     }
   
     return errors;
