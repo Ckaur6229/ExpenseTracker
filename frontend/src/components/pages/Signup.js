@@ -68,6 +68,8 @@ const Signup = () => {
         alert("Register Successful");
         localStorage.setItem("token", resData.token);
         localStorage.setItem("userId", resData.userId);
+        localStorage.setItem("name", resData.name);
+
         setUser({ name: "", email: "", password: "" });
         nav('/login')
       } else {

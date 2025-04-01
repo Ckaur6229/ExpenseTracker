@@ -9,8 +9,8 @@ const Login = () => {
 const [formError, setFormError] = useState({});
   
   useEffect(() => {
-    const auth = localStorage.getItem("token");
-    if (auth) {
+    const email = localStorage.getItem("email");
+    if (email) {
       alert("You are already logged in")
       nav("/");
     }
@@ -62,6 +62,7 @@ const [formError, setFormError] = useState({});
         console.log(resData)
         localStorage.setItem("token", resData.token);
         localStorage.setItem("userId", resData.userId);
+        localStorage.setItem("email", resData.email);
         setUser({email:"",password:""})
         nav("/dashboard")
       }
