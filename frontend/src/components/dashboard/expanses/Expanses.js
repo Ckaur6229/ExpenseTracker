@@ -45,6 +45,7 @@ const Expanses = () => {
           const errorData = await response.json();
           console.error("Error response from server:", errorData);
           alert("Error adding expense: " + (errorData.message || "Unknown error"));
+          setShowModal(false)
           return;
         }
     

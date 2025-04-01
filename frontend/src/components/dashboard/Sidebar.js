@@ -17,7 +17,10 @@ const Sidebar = () => {
             ☰
           </button>
         )}
-        <h4 className="text-center">Dashboard</h4>
+        <div className="d-flex align-items-center">
+          <img src="/assets/img/logo1.png" height="50px"/>
+          <span className="fs-4 fw-semibold ms-1" style={{color:"rgb(76, 72, 136)"}}>Xpensr</span>
+          </div>
       </div>
       <ul className="nav flex-column mt-3 text-center">
         <li className="nav-item">
