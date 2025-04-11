@@ -134,6 +134,11 @@ const HomeDashboard = () => {
     }
   };
 
+  const navExpanse=(id)=>{
+    console.log("Navigating to:", `/addSubExpanse/${id}`);
+    nav(`/addSubExpanse/${id}`)
+  }
+
   return (
     <>
       <div className="d-flex vh-100">
@@ -199,11 +204,12 @@ const HomeDashboard = () => {
               </div>
 
               <div className="col-md-6 mt-2 ">
-                Latest Expenses
+                <span className="fw-bold fs-3">Latest Expenses</span>
                 {allExpanses.map((exp, index) => (
                   <div
                     className="card my-3 shadow py-3"
                     style={{ cursor: "pointer" }}
+                    onClick={()=>navExpanse(exp._id)}
                   >
                     <div className="card-body d-flex justify-content-between py-0">
                       <div className="">
@@ -214,7 +220,7 @@ const HomeDashboard = () => {
                           className="text-light-emphasis"
                           style={{ fontSize: "13px" }}
                         >
-                          1 item
+                         {new Date(exp.createdAt).toLocaleDateString()}
                         </p>
                       </div>
                       <p
