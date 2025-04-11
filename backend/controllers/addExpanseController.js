@@ -10,19 +10,19 @@ const addExpanse = async (req, res) => {
 
     // Validate request body
     if (!expanseName || !expanseAmount) {
-      return res.status(400).json({ error: "All fields are required" });
+      return res.status(400).json({ message: "All fields are required" });
     }
 
     // Find the user's budget by userId
     const budget = await Budget.findOne({ userId }).select('_id totalExpense amount');
     if (!budget) {
-      return res.status(404).json({ error: 'Budget not found for the user' });
+      return res.status(404).json({ MessageChannel: 'Budget not found for the user' });
     }
     
     console.log("Budget ID:", budget._id);
-    // if(budget.amount===totalExpense){
-    //   return res.status(404).json({ error: 'Expense cannot be added' });
-    // }
+    if(budget.amount===budget.totalExpense){
+      return res.status(404).json({ message: "You don't have enough Budget" });
+    }
 
     // Save new expense
     const newExpanse = new Expanse({ expanseName, expanseAmount, userId });

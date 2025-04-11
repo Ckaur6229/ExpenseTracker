@@ -11,9 +11,12 @@ const addSubExp = async (req, res) => {
         // console.log(subExpenseAmount)
         // Validate request body
         if (!subExpenseName || !subExpenseAmount) {
-            return res.status(400).json({ error: "All fields are required" });
+            return res.status(400).json({ message: "All fields are required" });
         }
-
+        let exp=await Expanse.findOne({_id:expenseId})
+        if(exp.expanseAmount===exp.totalSpent){
+            return res.status(400).json({ message: "You Don't have enough amount"})
+        }
         let newSubExpanse = new SubExpenses({subExpenseName,subExpenseAmount,userId,expenseId});
         let result = await newSubExpanse.save();
         await Expanse.findByIdAndUpdate(expenseId, {
